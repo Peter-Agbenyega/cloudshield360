@@ -1,81 +1,72 @@
-CloudShield360
-CloudShield360 is a modular, production-ready AWS Secure Cloud Landing Zone, fully built using Terraform Infrastructure as Code (IaC) best practices.
+# CloudShield360
 
-It provides a robust, secure, and scalable cloud foundation for modern applications, including:
+**CloudShield360** is a production-ready, modular AWS Secure Landing Zone Infrastructure project built entirely with Terraform using best IaC practices. It supports real deployment and includes reusable modules for rapid DevOps provisioning and zero-trust architecture.
 
-Multi-AZ VPC Architecture
+---
 
-EC2 Compute Instances (Public and Private)
+## Key Features
 
-IAM Identity and Access Management (Secure Roles, Policies, Instance Profiles)
+- Multi-AZ VPC Architecture (Highly Available)
+- Public and Private EC2 Instances (Web & App Tier)
+- IAM Identity Management (Roles, Policies, Instance Profiles)
+- RDS Database Deployment (PostgreSQL, Private Subnet)
+- Secure Internet Access (IGW + NAT + Security Groups)
+- Scalable Terraform Modules with Clean Folder Separation
+- GitHub Version Control Integration
+- Automation-Ready: Terraform Plan → Apply → Destroy
 
-Amazon RDS Managed Database Deployment
+---
 
-Terraform Modular Architecture for Scalability
-
-GitHub Version Control and Deployment Automation-Ready
-
-Architecture Overview
-CloudShield360 deploys:
-
-VPC: Private cloud network
-
-Subnets: Public and Private Zones
-
-Internet Gateway and NAT Setup: Secure internet access
-
-Security Groups: Layered network firewalling
-
-EC2 Instances: Web servers (Public) and App servers (Private)
-
-IAM Roles and Policies: Granular access control
-
-RDS Database: Managed PostgreSQL deployment
-
-Terraform Modules: Complete modularity and reusability
-
-Technologies Used
-Terraform v1.10+
-
-AWS VPC, EC2, IAM, RDS, CloudTrail
-
-Git and GitHub for Source Control
-
-VS Code for Development
-
+## Architecture Overview
 
 cloudshield360/
-│
 ├── modules/
-│   ├── vpc/
-│   ├── ec2/
-│   ├── iam/
-│   ├── rds/
-│   └── cloudtrail/ (Optional Future Expansion)
-│
+│ ├── vpc/
+│ ├── ec2/
+│ ├── iam/
+│ └── rds/
 ├── main.tf
-├── outputs.tf
 ├── providers.tf
 ├── variables.tf
+├── outputs.tf
 ├── terraform.tfvars
 ├── .gitignore
-├── README.md
-└── terraform.tfstate (Local only, not pushed to GitHub)
+└── README.md
 
-
-How to Deploy (Simulated)
-This project is ready for real AWS deployment.
-To deploy (assuming active AWS credentials configured):
-
-bash
+yaml
 Copy code
+
+---
+
+## Technologies Used
+
+- **Terraform** v1.10+
+- **AWS** (VPC, EC2, IAM, RDS, CloudTrail)
+- **Git & GitHub** for Source Control
+- **VS Code** for Development
+
+---
+
+## How to Deploy (Real AWS Deployment)
+
+> Make sure your AWS CLI is configured with valid credentials.
+
+```bash
+# Clone or copy the project
+cd cloudshield360
+
+# Initialize Terraform
 terraform init
-terraform validate
+
+# Preview the plan
 terraform plan
+
+# Apply to provision live resources
 terraform apply
 
-
+# To clean up (destroy)
+terraform destroy
 Author
 Peter Christian Agbenyega
 Cloud Infrastructure Engineer | AWS Certified Solutions Architect | Terraform Expert
-Founder of Cloud Nexus Hub LLC
+Founder — Cloud Nexus Hub LLC
